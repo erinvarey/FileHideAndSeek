@@ -15,7 +15,7 @@ public class main {
 		new Interface();
 		
 		
-		FileMethods test=new FileMethods();
+		//FileMethods test=new FileMethods();
 		
 		
 	}

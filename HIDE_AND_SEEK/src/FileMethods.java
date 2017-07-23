@@ -18,7 +18,7 @@ public class FileMethods {
 	public FileMethods()throws IOException{
 		this.FilePathLocation="C:\\";
 		this.FileName="";
-		this.NewFileLocation="C:";
+		this.NewFileLocation="C:\\";
 		this.FoundFile=false;
 		this.FoundLocation=false;
 		
@@ -38,11 +38,17 @@ public class FileMethods {
 		//System.out.println(getNewFileLocation());
 		
 	}
-	private String getFileName(){
+	public String getFileName(){
 		return this.FileName; 	
 	}
-	private String getFilePath(){
-		return this.FilePathLocation;
+	public String getFilePath(){
+		if(this.FilePathLocation.equals("C:\\")){
+			this.FilePathLocation="C:\\\\";	
+			return "C:\\\\";
+		}
+		else{
+			return this.FilePathLocation;
+		}
 	}
 	public Object filename(){
 		String charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz()[]{}^*!@#$";
@@ -62,16 +68,16 @@ public class FileMethods {
 		for(int i =0;i<5;i++){
 			MoveFolderPath();
 			File spam = new File(getNewFileLocation()+filename());
-			System.out.println(spam);
+			//System.out.println(spam);
 			
 		}
 	}
 	
-	private String getNewFileLocation(){
+	public String getNewFileLocation(){
 		return this.NewFileLocation;
 	}
 	
-	private void moveFile(String OldPath,String File,String newLocation){
+	public void moveFile(String OldPath,String File,String newLocation){
 		File folder = new File(OldPath+"\\"+File);
 		File newfile = new File(newLocation+"\\"+File);
 		folder.renameTo(newfile);
@@ -86,9 +92,18 @@ public class FileMethods {
 		File[] files = dir.listFiles();
 		
 		while (!this.FoundFile){
-			int i = (int)(Math.random()*files.length);
-			files=deeperOrNot(files,i);
-			
+			try{
+				if(files.length!=0){
+					int i = (int)(Math.random()*files.length);
+					files=deeperOrNot(files,i);
+				}
+			}
+			catch(NullPointerException e){
+				System.out.println("error ");
+				System.out.println(this.FilePathLocation);
+				files = dir.listFiles();
+				this.FilePathLocation="C:\\";
+			}
 		}
 		
 	}
@@ -117,7 +132,7 @@ public class FileMethods {
 		int depth=0;
 		boolean done=false;
 		File[] folder = dir.listFiles();
-		String Path="C:";
+		String Path="C:\\";
 		
 		List<String> PossibleFolders=NewPath(folder);
 		

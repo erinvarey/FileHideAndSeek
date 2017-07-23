@@ -12,7 +12,7 @@ import javax.swing.JComponent;
 
 public class Timer extends JComponent {
 	int time=0;
-	int maxTime=10*10;
+	int maxTime=10*1000;
 	private boolean done=false;
 	Interface i;
 	public Timer(Interface i){

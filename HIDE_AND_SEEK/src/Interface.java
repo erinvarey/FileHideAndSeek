@@ -24,8 +24,10 @@ public class Interface extends JFrame {
 	JPanel lose;
 	Timer timer;
 	JLabel title;
+	JLabel fileName;
 	JButton go;
 	JButton easy;
+	FileMethods test=null;
 	JButton hard;
 	String URL="WIN";
 	private int dif=-1;
@@ -72,11 +74,14 @@ public class Interface extends JFrame {
 				timer.start();
 				
 				try {
-					FileMethods test=new FileMethods();
+					System.out.println("hello");
+					test=new FileMethods();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				URL=test.getNewFileLocation();
+				fileName.setText(test.getFileName());
 				//grabFile();	
 				//System.out.println(getFileName());
 				//System.out.println(getFilePath());
@@ -112,6 +117,8 @@ public class Interface extends JFrame {
 		root2.add(top,BorderLayout.NORTH);	
 		root2.add(timer);
 		top.add(ans);
+		fileName=new JLabel();
+		top.add(fileName,BorderLayout.SOUTH);
 		top.add(submit,BorderLayout.EAST);
 		win=new JPanel();
 		lose=new JPanel();
@@ -120,6 +127,7 @@ public class Interface extends JFrame {
 		submit.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				test.moveFile(test.getNewFileLocation(),test.getFileName(),test.getFilePath());
 				if(ans.getText().equals(URL))setContentPane(win);
 				else setContentPane(lose);
 				pack();
