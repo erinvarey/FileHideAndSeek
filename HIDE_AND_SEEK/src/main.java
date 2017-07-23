@@ -12,6 +12,9 @@ public class main {
 		File newfile = new File("C:/Users/Erin/Desktop/TEST/moved.txt");
 		File[] listOfFiles = folder.listFiles();
 		folder.renameTo(newfile);
+		new Interface();
+		
+		
 		FileMethods test=new FileMethods();
 		
 		

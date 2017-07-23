@@ -22,17 +22,18 @@ public class FileMethods {
 		this.FoundFile=false;
 		this.FoundLocation=false;
 		
-		//grabFile();	
-		//System.out.println(getFileName());
-		//System.out.println(getFilePath());
+		grabFile();	
+		System.out.println(getFileName());
+		System.out.println(getFilePath());
+		MoveFolderPath();
+		System.out.println(getNewFileLocation());
 		
-		
-		//moveFile("C:\\Python27","kyle.txt","C:\\testcase");
+		moveFile(getFilePath(),getFileName(),getNewFileLocation());
 		
 		
 		//deleteFile("C:\\Python27\\kyle.txt");
 		
-		makefile();
+		
 		//MoveFolderPath();
 		//System.out.println(getNewFileLocation());
 		
@@ -53,14 +54,14 @@ public class FileMethods {
 		//String base = FilenameUtils.removeExtension(filename);
         for (int i = 0; i < length; i++){
             int index = (int) (rand.nextFloat() * numChars);
-            //File = charset.charAt(index);
+          //  File = File(charset.charAt(index));
         }
         return File;
 	}
 	public void makefile(){
 		for(int i =0;i<5;i++){
 			MoveFolderPath();
-			File spam = new File(getNewFileLocation()+"\\"+"333.txt");
+			File spam = new File(getNewFileLocation()+filename());
 			System.out.println(spam);
 			
 		}
