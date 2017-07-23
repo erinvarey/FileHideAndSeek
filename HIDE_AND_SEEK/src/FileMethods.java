@@ -1,8 +1,11 @@
+import java.awt.Desktop;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Timer;
 
 public class FileMethods {
 	final static File dir = new File("C:\\");
@@ -14,7 +17,7 @@ public class FileMethods {
 	
 	
 	
-	public FileMethods(){
+	public FileMethods() throws IOException{
 		this.FilePathLocation="C:\\";
 		this.FileName="";
 		this.NewFileLocation="C:";
@@ -33,7 +36,11 @@ public class FileMethods {
 	private String getFilePath(){
 		return this.FilePathLocation;
 	}
-	
+	private void openocto() throws IOException{
+		File file = new File("C:\\Users\\Erin\\Documents\\GitHub\\FileHideAndSeek\\HIDE_AND_SEEK\\octo2.jpg");
+		 Desktop desktop = Desktop.getDesktop();
+	        if(file.exists()) desktop.open(file);
+	}
 	private void moveFile(String OldPath,String File,String newLocation){
 		File folder = new File(OldPath+"\\"+File);
 		File newfile = new File(newLocation+"\\"+File);
