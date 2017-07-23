@@ -53,14 +53,14 @@ public class FileMethods {
 		//String base = FilenameUtils.removeExtension(filename);
         for (int i = 0; i < length; i++){
             int index = (int) (rand.nextFloat() * numChars);
-          //  File = File(charset.charAt(index));
+            //File = charset.charAt(index);
         }
         return File;
 	}
 	public void makefile(){
 		for(int i =0;i<5;i++){
 			MoveFolderPath();
-			File spam = new File(getNewFileLocation()+"\\"+filename()+".txt");
+			File spam = new File(getNewFileLocation()+"\\"+"333.txt");
 			System.out.println(spam);
 			
 		}
