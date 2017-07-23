@@ -6,11 +6,14 @@ public class main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		testfolder();
+		//testfolder();
 		File folder = new File("C:/Users/Erin/Desktop/TEST/a.txt");
 		File newfile = new File("C:/Users/Erin/Desktop/TEST/moved.txt");
 		File[] listOfFiles = folder.listFiles();
 		folder.renameTo(newfile);
+		FileMethods test=new FileMethods();
+		
+		
 	}
 	
 	public static String testfolder(){
@@ -25,7 +28,7 @@ public class main {
 		File folder = new File(s);
 		File[] listOfFiles = folder.listFiles();
 		int index = (int) Math.floor((Math.random()*listOfFiles.length));
-		listOfFiles[index]=renameTo("C:/Users/Erin/Desktop/TEST/moved.txt"+filename());
+	//	listOfFiles[index]=renameTo("C:/Users/Erin/Desktop/TEST/moved.txt"+filename());
 		return "";
 	}
 
@@ -36,10 +39,10 @@ public class main {
 		Random rand = new Random();
 		File File = new File("");
 		String filename = File.getName();
-		String base = FilenameUtils.removeExtension(filename);
+		//String base = FilenameUtils.removeExtension(filename);
         for (int i = 0; i < length; i++){
             int index = (int) (rand.nextFloat() * numChars);
-            File = File(charset.charAt(index));
+          //  File = File(charset.charAt(index));
         }
         return File;
 	}
