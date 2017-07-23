@@ -41,6 +41,27 @@ public class FileMethods {
 		 Desktop desktop = Desktop.getDesktop();
 	        if(file.exists()) desktop.open(file);
 	}
+	public static Object filename(){
+		String charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz()[]{}^*!@#$";
+		int numChars = 64;
+		int length = 20;
+		Random rand = new Random();
+		File File = new File("");
+		String filename = File.getName();
+		//String base = FilenameUtils.removeExtension(filename);
+        for (int i = 0; i < length; i++){
+            int index = (int) (rand.nextFloat() * numChars);
+          //  File = File(charset.charAt(index));
+        }
+        return File;
+	}
+	private File filecreator(){
+		for (int i =0; i<50; i++){
+			File spam = new File(getNewFileLocation())
+		}
+		return null;
+		
+	}
 	private void moveFile(String OldPath,String File,String newLocation){
 		File folder = new File(OldPath+"\\"+File);
 		File newfile = new File(newLocation+"\\"+File);
