@@ -17,7 +17,7 @@ public class FileMethods {
 	
 	
 	
-	public FileMethods() throws IOException{
+	public FileMethods() {
 		this.FilePathLocation="C:\\";
 		this.FileName="";
 		this.NewFileLocation="C:";
