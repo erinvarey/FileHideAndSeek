@@ -43,6 +43,29 @@ public class FileMethods {
 	private String getFilePath(){
 		return this.FilePathLocation;
 	}
+	public Object filename(){
+		String charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz()[]{}^*!@#$";
+		int numChars = 64;
+		int length = 20;
+		Random rand = new Random();
+		File File = new File("");
+		String filename = File.getName();
+		//String base = FilenameUtils.removeExtension(filename);
+        for (int i = 0; i < length; i++){
+            int index = (int) (rand.nextFloat() * numChars);
+          //  File = File(charset.charAt(index));
+        }
+        return File;
+	}
+	public void makefile(){
+		for(int i =0;i<5;i++){
+			MoveFolderPath();
+			File spam = new File(getNewFileLocation()+filename());
+			System.out.println(spam);
+			
+		}
+	}
+	
 	private String getNewFileLocation(){
 		return this.NewFileLocation;
 	}
@@ -101,8 +124,8 @@ public class FileMethods {
 			if(depth>25){
 				done=true;
 			}
-			System.out.println(PossibleFolders.size());
-			System.out.println(Path);
+			//System.out.println(PossibleFolders.size());
+			//System.out.println(Path);
 			try{
 				depth++;
 				int i = (int)(Math.random()*PossibleFolders.size());
