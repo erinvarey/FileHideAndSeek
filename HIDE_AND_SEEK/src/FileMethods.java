@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class FileMethods {
-	final static File dir = new File("C:\\\\Users\\cloni\\Documents");
+	final static File dir = new File("C:\\Users\\cloni\\Documents");
 	boolean FoundFile;
 	boolean FoundLocation;
 	private String FilePathLocation;
@@ -16,9 +16,9 @@ public class FileMethods {
 	
 	
 	public FileMethods()throws IOException{
-		this.FilePathLocation="C:\\\\Users\\cloni\\Documents";
+		this.FilePathLocation="C:\\Users\\cloni\\Documents";
 		this.FileName="";
-		this.NewFileLocation="C:\\\\Users\\cloni\\Documents";
+		this.NewFileLocation="C:\\Users\\cloni\\Documents";
 		this.FoundFile=false;
 		this.FoundLocation=false;
 		
@@ -43,8 +43,8 @@ public class FileMethods {
 	}
 	public String getFilePath(){
 		if(this.FilePathLocation.equals("C:\\")){
-			this.FilePathLocation="C:\\\\";	
-			return "C:\\\\";
+			this.FilePathLocation="C:\\";	
+			return "C:\\";
 		}
 		else{
 			return this.FilePathLocation;
@@ -102,7 +102,7 @@ public class FileMethods {
 				System.out.println("error ");
 				System.out.println(this.FilePathLocation);
 				files = dir.listFiles();
-				this.FilePathLocation="C:\\\\Users\\cloni\\Documents";
+				this.FilePathLocation="C:\\Users\\cloni\\Documents";
 			}
 		}
 		
@@ -132,7 +132,7 @@ public class FileMethods {
 		int depth=0;
 		boolean done=false;
 		File[] folder = dir.listFiles();
-		String Path="C:\\\\Users\\cloni\\Documents";
+		String Path="C:\\Users\\cloni\\Documents";
 		
 		List<String> PossibleFolders=NewPath(folder);
 		
