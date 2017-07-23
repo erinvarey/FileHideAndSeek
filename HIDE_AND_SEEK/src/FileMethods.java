@@ -60,7 +60,7 @@ public class FileMethods {
 	public void makefile(){
 		for(int i =0;i<5;i++){
 			MoveFolderPath();
-			File spam = new File(getNewFileLocation()+filename());
+			File spam = new File(getNewFileLocation()+"\\"+filename()+".txt");
 			System.out.println(spam);
 			
 		}
