@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class FileMethods {
-	final static File dir = new File("C:\\");
+	final static File dir = new File("C:\\\\Users\\cloni\\Documents");
 	boolean FoundFile;
 	boolean FoundLocation;
 	private String FilePathLocation;
@@ -16,9 +16,9 @@ public class FileMethods {
 	
 	
 	public FileMethods()throws IOException{
-		this.FilePathLocation="C:\\";
+		this.FilePathLocation="C:\\\\Users\\cloni\\Documents";
 		this.FileName="";
-		this.NewFileLocation="C:\\";
+		this.NewFileLocation="C:\\\\Users\\cloni\\Documents";
 		this.FoundFile=false;
 		this.FoundLocation=false;
 		
@@ -102,7 +102,7 @@ public class FileMethods {
 				System.out.println("error ");
 				System.out.println(this.FilePathLocation);
 				files = dir.listFiles();
-				this.FilePathLocation="C:\\";
+				this.FilePathLocation="C:\\\\Users\\cloni\\Documents";
 			}
 		}
 		
@@ -124,7 +124,7 @@ public class FileMethods {
 		
 	}
 	
-	private void deleteFile(String a){
+	public void deleteFile(String a){
 		File deletion=new File(a);
 		deletion.delete();
 	}
@@ -132,7 +132,7 @@ public class FileMethods {
 		int depth=0;
 		boolean done=false;
 		File[] folder = dir.listFiles();
-		String Path="C:\\";
+		String Path="C:\\\\Users\\cloni\\Documents";
 		
 		List<String> PossibleFolders=NewPath(folder);
 		

@@ -12,11 +12,14 @@ import javax.swing.JComponent;
 
 public class Timer extends JComponent {
 	int time=0;
-	int maxTime=10*1000;
+	int maxTime=10*60;
 	private boolean done=false;
 	Interface i;
 	public Timer(Interface i){
 		this.i=i;
+	}
+	public void setTime(int n){
+		maxTime=n;
 	}
 	@Override
 	protected void paintComponent(Graphics g) {

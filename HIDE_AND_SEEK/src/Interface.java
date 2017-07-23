@@ -71,6 +71,8 @@ public class Interface extends JFrame {
 				setContentPane(root2);				
 				pack();
 				repaint();
+				if(dif==0)timer.setTime(10*60);
+				else timer.setTime(10*30);
 				timer.start();
 				
 				try {
@@ -127,8 +129,10 @@ public class Interface extends JFrame {
 		submit.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				test.moveFile(test.getNewFileLocation(),test.getFileName(),test.getFilePath());
-				if(ans.getText().equals(URL))setContentPane(win);
+				if(ans.getText().equals(URL)){
+					setContentPane(win);
+					test.moveFile(test.getNewFileLocation(),test.getFileName(),test.getFilePath());
+				}
 				else setContentPane(lose);
 				pack();
 				repaint();
@@ -139,6 +143,7 @@ public class Interface extends JFrame {
 		setContentPane(lose);
 		pack();
 		repaint();
+		test.deleteFile(test.getNewFileLocation()+"\\"+test.getFileName());
 	}
 	private ImageIcon scale(ImageIcon img,int w,int h){
 		Image i=img.getImage();		
