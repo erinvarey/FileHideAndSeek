@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -14,7 +15,7 @@ public class FileMethods {
 	
 	
 	
-	public FileMethods(){
+	public FileMethods()throws IOException{
 		this.FilePathLocation="C:\\";
 		this.FileName="";
 		this.NewFileLocation="C:";
