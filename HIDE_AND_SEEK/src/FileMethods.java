@@ -20,18 +20,30 @@ public class FileMethods {
 		this.NewFileLocation="C:";
 		this.FoundFile=false;
 		this.FoundLocation=false;
+		
 		//grabFile();	
 		//System.out.println(getFileName());
 		//System.out.println(getFilePath());
+		
+		
 		//moveFile("C:\\Python27","kyle.txt","C:\\testcase");
+		
+		
 		//deleteFile("C:\\Python27\\kyle.txt");
+		
+		
 		MoveFolderPath();
+		System.out.println(getNewFileLocation());
+		
 	}
 	private String getFileName(){
 		return this.FileName; 	
 	}
 	private String getFilePath(){
 		return this.FilePathLocation;
+	}
+	private String getNewFileLocation(){
+		return this.NewFileLocation;
 	}
 	
 	private void moveFile(String OldPath,String File,String newLocation){
@@ -77,21 +89,31 @@ public class FileMethods {
 		deletion.delete();
 	}
 	private void MoveFolderPath(){
+		int depth=0;
+		boolean done=false;
 		File[] folder = dir.listFiles();
 		String Path="C:";
 		
 		List<String> PossibleFolders=NewPath(folder);
 		
-		while (PossibleFolders.size()!=0){
+		while (PossibleFolders.size()!=0 & done==false){
+			if(depth>25){
+				done=true;
+			}
 			System.out.println(PossibleFolders.size());
-			int i = (int)(Math.random()*PossibleFolders.size());
-			Path=Path+"\\"+PossibleFolders.get(i);
-			folder=new File(Path).listFiles();
-			PossibleFolders=NewPath(folder);
+			System.out.println(Path);
+			try{
+				depth++;
+				int i = (int)(Math.random()*PossibleFolders.size());
+				Path=Path+"\\"+PossibleFolders.get(i);
+				folder=new File(Path).listFiles();
+				PossibleFolders=NewPath(folder);
+			}
+			catch(NullPointerException e){
+			}
 			
 		}
 		this.NewFileLocation=Path;
-		System.out.println(Path);
 	}
 	private List<String> NewPath(File[] folder){
 		List<String> newPossibleFolders=new ArrayList <String>();
