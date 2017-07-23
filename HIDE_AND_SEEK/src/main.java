@@ -1,11 +1,10 @@
 import java.io.File;
-import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 
 public class main {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//testfolder();
 		File folder = new File("C:/Users/Erin/Desktop/TEST/a.txt");

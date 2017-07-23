@@ -1,11 +1,9 @@
-import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Timer;
 
 public class FileMethods {
 	final static File dir = new File("C:\\");
@@ -17,18 +15,27 @@ public class FileMethods {
 	
 	
 	
-	public FileMethods() {
+	public FileMethods()throws IOException{
 		this.FilePathLocation="C:\\";
 		this.FileName="";
 		this.NewFileLocation="C:";
 		this.FoundFile=false;
 		this.FoundLocation=false;
+		
 		//grabFile();	
 		//System.out.println(getFileName());
 		//System.out.println(getFilePath());
+		
+		
 		//moveFile("C:\\Python27","kyle.txt","C:\\testcase");
+		
+		
 		//deleteFile("C:\\Python27\\kyle.txt");
+		
+		
 		MoveFolderPath();
+		System.out.println(getNewFileLocation());
+		
 	}
 	private String getFileName(){
 		return this.FileName; 	
@@ -36,32 +43,10 @@ public class FileMethods {
 	private String getFilePath(){
 		return this.FilePathLocation;
 	}
-	private void openocto() throws IOException{
-		File file = new File("C:\\Users\\Erin\\Documents\\GitHub\\FileHideAndSeek\\HIDE_AND_SEEK\\octo2.jpg");
-		 Desktop desktop = Desktop.getDesktop();
-	        if(file.exists()) desktop.open(file);
+	private String getNewFileLocation(){
+		return this.NewFileLocation;
 	}
-	public static Object filename(){
-		String charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz()[]{}^*!@#$";
-		int numChars = 64;
-		int length = 20;
-		Random rand = new Random();
-		File File = new File("");
-		String filename = File.getName();
-		//String base = FilenameUtils.removeExtension(filename);
-        for (int i = 0; i < length; i++){
-            int index = (int) (rand.nextFloat() * numChars);
-          //  File = File(charset.charAt(index));
-        }
-        return File;
-	}
-	private File filecreator(){
-		for (int i =0; i<50; i++){
-			File spam = new File(getNewFileLocation())
-		}
-		return null;
-		
-	}
+	
 	private void moveFile(String OldPath,String File,String newLocation){
 		File folder = new File(OldPath+"\\"+File);
 		File newfile = new File(newLocation+"\\"+File);
@@ -105,21 +90,31 @@ public class FileMethods {
 		deletion.delete();
 	}
 	private void MoveFolderPath(){
+		int depth=0;
+		boolean done=false;
 		File[] folder = dir.listFiles();
 		String Path="C:";
 		
 		List<String> PossibleFolders=NewPath(folder);
 		
-		while (PossibleFolders.size()!=0){
+		while (PossibleFolders.size()!=0 & done==false){
+			if(depth>25){
+				done=true;
+			}
 			System.out.println(PossibleFolders.size());
-			int i = (int)(Math.random()*PossibleFolders.size());
-			Path=Path+"\\"+PossibleFolders.get(i);
-			folder=new File(Path).listFiles();
-			PossibleFolders=NewPath(folder);
+			System.out.println(Path);
+			try{
+				depth++;
+				int i = (int)(Math.random()*PossibleFolders.size());
+				Path=Path+"\\"+PossibleFolders.get(i);
+				folder=new File(Path).listFiles();
+				PossibleFolders=NewPath(folder);
+			}
+			catch(NullPointerException e){
+			}
 			
 		}
 		this.NewFileLocation=Path;
-		System.out.println(Path);
 	}
 	private List<String> NewPath(File[] folder){
 		List<String> newPossibleFolders=new ArrayList <String>();
