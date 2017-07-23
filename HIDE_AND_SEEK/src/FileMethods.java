@@ -32,9 +32,9 @@ public class FileMethods {
 		
 		//deleteFile("C:\\Python27\\kyle.txt");
 		
-		
-		MoveFolderPath();
-		System.out.println(getNewFileLocation());
+		makefile();
+		//MoveFolderPath();
+		//System.out.println(getNewFileLocation());
 		
 	}
 	private String getFileName(){
